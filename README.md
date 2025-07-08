@@ -52,17 +52,33 @@
 
 ### 🧭 **Sommaire :**
 
+---
+
+<div align="center" style="margin-bottom: 10px;">
+
+Légende des couleurs des boutons :
+
+🟢 **Actif** – Dépôt totalement accessible  
+🟠 **Partiel** – Dépôt partiellement accessible  
+🔴 **Inactif** – Dépôt inaccessible ou indisponible
+
+</div>
+
+---
+
 <div align="center">
+
+**Catégories des projets :**
 
 | Catégorie         | Description                                                                 | Accès Rapide                                                                                                                              |
 |-------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Apprentissage** | Introduction à la Cryptographie.  | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](CYBERSECURITE-CRYPTOGRAPHIE-introduction.md) |
+| **Apprentissage** | Introduction à la Cryptographie.       | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](CYBERSECURITE-CRYPTOGRAPHIE-introduction.md) |
 | **Apprentissage** |                                        | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
 | **Apprentissage** |                                        | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
 | **Apprentissage** |                                        | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
 | **Apprentissage** |                                        | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
 | **Apprentissage** |                                        | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
-| **Apprentissage** |                                     | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
+| **Apprentissage** |                                        | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
 
 </div>
 
