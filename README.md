@@ -73,7 +73,7 @@ Légende des couleurs des boutons :
 | Catégorie         | Description                                                                 | Accès Rapide                                                                                                                              |
 |-------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Cryptographie** | Introduction.       | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](CYBERSECURITE-CRYPTOGRAPHIE-introduction.md) |
-| **Crytographie** | Cours                | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/CRYPTOGRAPHIE/blob/main/CYBERSECURITE-CRYPTOGRAPHIE-COURS.md) |
+| **Crytographie** | Cours.                | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/CRYPTOGRAPHIE/blob/main/CYBERSECURITE-CRYPTOGRAPHIE-COURS.md) |
 
 </div>
 
