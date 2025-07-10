@@ -35,216 +35,216 @@
 
 ---
 
-# 🔐 Cours de Cryptographie sous Debian 12
+# 🔐 Cours complet : Introduction à la cryptographie sous Debian 12
 
-# Cours de Cryptographie sous Debian 12
-
-## 1. 🔐 Introduction à la Cryptographie
-
-La cryptographie permet de **protéger la confidentialité, l'intégrité et l’authenticité** des données :
-
-- **Confidentialité** : seules les personnes autorisées peuvent lire les données.
-- **Intégrité** : les données ne sont pas modifiées.
-- **Authenticité** : on peut vérifier l’identité de l’émetteur.
-
-### Types de cryptographie
-
-| Type        | Exemples d’outils      | Usage                           |
-| ----------- | ---------------------- | ------------------------------- |
-| Symétrique  | `openssl`, `gpg` (AES) | Chiffrer rapidement un fichier  |
-| Asymétrique | `gpg`, `ssh-keygen`    | Signature, chiffrement de mails |
-| Hachage     | `sha256sum`, `md5sum`  | Vérifier l’intégrité            |
+Ce document propose une série de mini-cours pour comprendre et pratiquer la **cryptographie** dans un environnement **Linux Debian 12**. Chaque section contient une explication théorique claire et des exercices pratiques.
 
 ---
 
-## 2. ⚙️ Installer les outils nécessaires
+## 📚 Cours 1 : Introduction à la cryptographie
 
-```bash
-sudo apt update
-sudo apt install -y gnupg openssl gpg ssh
-```
+### 🧠 Définition
+La cryptographie est l'art de **protéger l'information** contre les accès non autorisés, en transformant les données (texte clair) en un format illisible (texte chiffré), et inversement.
 
----
+### 🔍 Objectifs principaux :
+- **Confidentialité** : empêcher la lecture non autorisée.
+- **Authenticité** : prouver l'identité de l’émetteur.
+- **Intégrité** : garantir que les données n'ont pas été modifiées.
+- **Non-répudiation** : empêcher qu’un émetteur nie l’avoir fait.
 
-## 3. 🔐 Cryptographie symétrique avec `openssl`
-
-### Exemple : Chiffrer un fichier avec AES-256
-
-```bash
-openssl enc -aes-256-cbc -salt -in secret.txt -out secret.txt.enc
-```
-
-**Explication :**
-
-- `-aes-256-cbc` : algorithme symétrique fort
-- `-salt` : ajoute du sel pour renforcer le chiffrement
-- `-in` / `-out` : fichier source et résultat
-
-### Déchiffrer :
-
-```bash
-openssl enc -aes-256-cbc -d -in secret.txt.enc -out secret.txt
-```
+### 🧱 Types de cryptographie :
+- **Symétrique** : une seule clé pour chiffrer/déchiffrer.
+- **Asymétrique** : paire de clés publique/privée.
+- **Hachage** : générer une empreinte unique (non réversible).
 
 ---
 
-## 4. 🛡️ Hachage d’un fichier
+## 🧪 Cours 2 : Chiffrement symétrique avec OpenSSL
 
-### Créer un hash SHA256
+### 🎯 Objectif :
+Chiffrer un fichier avec une clé partagée (symétrique), puis le déchiffrer.
 
-```bash
-sha256sum fichier.txt > hash.txt
-```
-
-**Explication :** Cette commande génère un fichier `hash.txt` contenant le hachage SHA256 du fichier, suivi de son nom.
-
-### Vérifier l’intégrité
+### 📌 Commandes de base :
 
 ```bash
-sha256sum -c hash.txt
+# Chiffrement
+openssl enc -aes-256-cbc -salt -in message.txt -out message.txt.enc
+
+# Déchiffrement
+openssl enc -aes-256-cbc -d -in message.txt.enc -out message-decrypted.txt
 ```
 
-> `hash.txt` doit contenir une ligne comme :
-> `abc123...  fichier.txt`
-
-### Alternatives : SHA1 et SHA512
-
-```bash
-sha1sum fichier.txt
-sha512sum fichier.txt
-```
+### 📘 Explications :
+- `-aes-256-cbc` : algorithme de chiffrement (256 bits).
+- `-salt` : ajoute une protection contre les attaques par dictionnaire.
+- Il vous sera demandé un mot de passe au moment du chiffrement/déchiffrement.
 
 ---
 
-## 5. 🔐 GPG (GNU Privacy Guard)
+## 🔐 Cours 3 : Cryptographie asymétrique avec GPG
 
-### Générer une paire de clés
+### 🎯 Objectif :
+Créer une paire de clés, chiffrer des fichiers avec une clé publique et les déchiffrer avec la clé privée.
+
+### 🛠️ Génération des clés :
 
 ```bash
 gpg --full-generate-key
 ```
 
-**Explication :** Cette commande vous guide pour créer une clé (type, taille, nom, expiration, mot de passe).
+Suivre les étapes pour créer une clé RSA (2048 ou 4096 bits).
 
-### Lister les clés disponibles
-
-```bash
-gpg --list-keys
-```
-
-### Exporter sa clé publique
+### 📤 Export de la clé publique :
 
 ```bash
-gpg --armor --export votreadresse@email.com > ma_cle.pub
+gpg --armor --export votreadresse@mail.com > public.key
 ```
 
-### Importer une clé publique
+### 🔒 Chiffrement :
 
 ```bash
-gpg --import cle_contact.pub
+gpg --encrypt --recipient votreadresse@mail.com fichier.txt
 ```
 
-### Chiffrer un fichier pour un contact
+### 🔓 Déchiffrement :
 
 ```bash
-gpg -e -r contact@email.com fichier.txt
+gpg --output fichier.txt --decrypt fichier.txt.gpg
 ```
 
-**Explication :** Crée `fichier.txt.gpg`, lisible uniquement par le détenteur de la clé privée associée.
-
-### Déchiffrer un fichier
-
-```bash
-gpg -d fichier.txt.gpg
-```
-
-**Remarque :** Nécessite votre clé privée et mot de passe.
+### ✅ Avantages :
+- Pas besoin de partager de mot de passe.
+- La signature numérique peut être ajoutée pour l’authenticité.
 
 ---
 
-## 6. ✍️ Signatures numériques avec GPG
+## 🔎 Cours 4 : Vérification d’intégrité avec le hachage
 
-### Signer un fichier (mode texte clair)
+### 🎯 Objectif :
+Créer une empreinte numérique d’un fichier et la vérifier après un transfert.
 
-```bash
-gpg --clearsign mon_fichier.txt
-```
-
-**Résultat :** un fichier signé nommé `mon_fichier.txt.asc`
-
-### Vérifier une signature
+### 🔧 Commandes utiles :
 
 ```bash
-gpg --verify mon_fichier.txt.asc
+# Générer un hash SHA256
+sha256sum fichier.txt
+
+# Générer un hash MD5 (moins sécurisé)
+md5sum fichier.txt
 ```
 
-**But :** S'assurer que le fichier est authentique et non modifié.
+### 📘 Utilisation :
+- Transmettez le fichier + son hash.
+- L’utilisateur compare le hash généré en local avec celui fourni.
 
 ---
 
-## 7. 🔐 Génération de clés SSH
+## 🛠️ Cours 5 : Certificats SSL avec OpenSSL
 
-### Créer une paire de clés
+### 🎯 Objectif :
+Générer un certificat SSL auto-signé (utile pour un serveur local ou un proxy interceptant).
 
-```bash
-ssh-keygen -t ed25519 -C "monemail@domaine.com"
-```
-
-**Explication :**
-- `ed25519` est un algorithme moderne, plus rapide que RSA
-- Le fichier est enregistré dans `~/.ssh/id_ed25519`
-
-### Copier la clé publique sur un serveur
+### 🔧 Étapes :
 
 ```bash
-ssh-copy-id utilisateur@ip_du_serveur
+# 1. Générer une clé privée
+openssl genrsa -out server.key 2048
+
+# 2. Créer une demande de certificat (CSR)
+openssl req -new -key server.key -out server.csr
+
+# 3. Signer le certificat vous-même
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
 
-**Effet :** Permet de se connecter sans mot de passe via SSH.
+### 📘 Utilisation :
+- Les fichiers `.crt` et `.key` peuvent être utilisés dans des services comme NGINX, Apache, ou Squid (SSL Bump).
 
 ---
 
-## 8. 🧪 Exemples avancés
+## 🔐 Cours 6 : Chiffrement de disque ou de volume avec `cryptsetup`
 
-### Chiffrer un dossier avec tar + openssl
+### 🎯 Objectif :
+Créer un volume chiffré sur un fichier ou une partition.
 
-```bash
-tar czf - mon_dossier | openssl enc -aes-256-cbc -salt -out mon_dossier.tar.gz.enc
-```
-
-**Explication :** Le dossier est compressé et chiffré en une seule ligne.
-
-### Déchiffrer
+### 🛠️ Exemple avec un fichier :
 
 ```bash
-openssl enc -d -aes-256-cbc -in mon_dossier.tar.gz.enc | tar xz
+# Créer un fichier de 100 Mo
+dd if=/dev/zero of=volume.img bs=1M count=100
+
+# Formater en LUKS (cryptage)
+cryptsetup luksFormat volume.img
+
+# Ouvrir et mapper le volume
+cryptsetup open volume.img secretvolume
+
+# Formater le volume en ext4
+mkfs.ext4 /dev/mapper/secretvolume
+
+# Monter le volume
+mount /dev/mapper/secretvolume /mnt
 ```
 
-**Résultat :** Le dossier est restauré après déchiffrement et extraction.
+### 🔐 Pour fermer :
+
+```bash
+umount /mnt
+cryptsetup close secretvolume
+```
 
 ---
 
-## 9. 📚 Bonnes pratiques
+## 🔑 Cours 7 : Gestion sécurisée des mots de passe avec `pass`
 
-- Ne partagez jamais vos clés privées !
-- Protégez vos clés avec un mot de passe fort.
-- Utilisez des algorithmes modernes (RSA ≥ 4096, Ed25519).
-- Faites des sauvegardes de vos clés dans des emplacements sécurisés.
-- Révoquez rapidement les clés compromises.
+### 🎯 Objectif :
+Gérer ses mots de passe chiffrés localement avec GPG.
+
+### 🛠️ Installation :
+
+```bash
+sudo apt install pass
+```
+
+### 🧾 Initialisation avec votre clé GPG :
+
+```bash
+pass init "Nom ou email associé à la clé GPG"
+```
+
+### ➕ Ajouter un mot de passe :
+
+```bash
+pass insert github.com/email@example.com
+```
+
+### 🔍 Lire un mot de passe :
+
+```bash
+pass github.com/email@example.com
+```
 
 ---
 
-## 10. 📌 Résumé visuel
+## 📊 Récapitulatif des outils
 
-| Action                | Commande principale              |
-| --------------------- | -------------------------------- |
-| Chiffrer (symétrique) | `openssl enc -aes-256-cbc`       |
-| Hachage               | `sha256sum`                      |
-| Clés GPG              | `gpg --full-generate-key`        |
-| Chiffrer avec GPG     | `gpg -e -r destinataire fichier` |
-| Signer avec GPG       | `gpg --clearsign fichier`        |
-| Générer une clé SSH   | `ssh-keygen -t ed25519`          |
-| Installer les outils  | `apt install gnupg openssl gpg`  |
+| Objectif | Outil | Commande clé |
+|---------|-------|---------------|
+| Chiffrement symétrique | `openssl` | `openssl enc` |
+| Chiffrement asymétrique | `gpg` | `gpg --encrypt` |
+| Hachage / intégrité | `sha256sum` | `sha256sum fichier` |
+| Certificat SSL | `openssl` | `openssl req`, `openssl x509` |
+| Volume chiffré | `cryptsetup` | `cryptsetup luksFormat` |
+| Gestion mots de passe | `pass` + `gpg` | `pass insert` |
+
+---
+
+## 🎯 Pour aller plus loin :
+
+- Étudier **PGP** (OpenPGP standard)
+- Utiliser **YubiKey** pour protéger les clés GPG
+- Apprendre à configurer **SSL sur NGINX ou Squid Proxy**
+- Utiliser **Tails** ou **Qubes OS** pour un usage orienté sécurité
 
 ---
 
