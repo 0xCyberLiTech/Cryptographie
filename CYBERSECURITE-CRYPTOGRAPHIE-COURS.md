@@ -1,8 +1,10 @@
 <div align="center">
 
-  <a href="https://github.com/0xCyberLiTech/CRYPTOGRAPHIE/blob/main/CYBERSECURITE-CRYPTOGRAPHIE-COURS.md">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=1000&lines=Cryptographie+%26+Cybersécurité;Chiffrement+Symétrique+%26+Asymétrique;Hachage+•+Signatures+•+Certificats;PCI+et+Bonnes+Pratiques;Protection+des+Données" alt="Typing SVG" />
+  <br></br>
+  <a href="https://github.com/0xCyberLiTech">
+    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ECRYPTOGRAPHIE_" alt="Titre dynamique CRYPTOGRAPHIE" />
   </a>
+  <br></br>
 
   <p align="center">
     <em>Un dépôt pédagogique autour des fondamentaux de la cybersécurité.</em><br>
