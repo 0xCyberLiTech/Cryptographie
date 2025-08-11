@@ -74,11 +74,13 @@ Chiffrer un fichier avec une clé partagée (symétrique), puis le déchiffrer.
 
 ### 📌 Commandes de base :
 
+### Déchiffrement
 ```bash
-# Chiffrement
 openssl enc -aes-256-cbc -salt -in message.txt -out message.txt.enc
+```
 
-# Déchiffrement
+### Déchiffrement
+```bash
 openssl enc -aes-256-cbc -d -in message.txt.enc -out message-decrypted.txt
 ```
 
@@ -133,11 +135,14 @@ Créer une empreinte numérique d’un fichier et la vérifier après un transfe
 
 ### 🔧 Commandes utiles :
 
-```bash
-# Générer un hash SHA256
-sha256sum fichier.txt
 
-# Générer un hash MD5 (moins sécurisé)
+### Générer un hash SHA256
+```bash
+sha256sum fichier.txt
+```
+
+### Générer un hash MD5 (moins sécurisé)
+```bash
 md5sum fichier.txt
 ```
 
@@ -154,14 +159,19 @@ Générer un certificat SSL auto-signé (utile pour un serveur local ou un proxy
 
 ### 🔧 Étapes :
 
+
+### 1. Générer une clé privée
 ```bash
-# 1. Générer une clé privée
 openssl genrsa -out server.key 2048
+```
+### 2. Créer une demande de certificat (CSR)
 
-# 2. Créer une demande de certificat (CSR)
+```bash
 openssl req -new -key server.key -out server.csr
+```
 
-# 3. Signer le certificat vous-même
+### 3. Signer le certificat vous-même
+```bash
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
 
@@ -177,20 +187,24 @@ Créer un volume chiffré sur un fichier ou une partition.
 
 ### 🛠️ Exemple avec un fichier :
 
+### Créer un fichier de 100 Mo
 ```bash
-# Créer un fichier de 100 Mo
 dd if=/dev/zero of=volume.img bs=1M count=100
-
-# Formater en LUKS (cryptage)
+```
+### Formater en LUKS (cryptage)
+```bash
 cryptsetup luksFormat volume.img
-
-# Ouvrir et mapper le volume
+```
+### Ouvrir et mapper le volume
+```bash
 cryptsetup open volume.img secretvolume
-
-# Formater le volume en ext4
+```
+### Formater le volume en ext4
+```bash
 mkfs.ext4 /dev/mapper/secretvolume
-
-# Monter le volume
+```
+### Monter le volume
+```bash
 mount /dev/mapper/secretvolume /mnt
 ```
 
@@ -198,6 +212,9 @@ mount /dev/mapper/secretvolume /mnt
 
 ```bash
 umount /mnt
+```
+
+```bash
 cryptsetup close secretvolume
 ```
 
