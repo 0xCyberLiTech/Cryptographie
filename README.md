@@ -80,8 +80,8 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 
 | Catégorie         | Description                                                                 | Accès Rapide                                                                                                                              |
 |-------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Cryptographie**  | Introduction.                                                               | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](CYBERSECURITE-CRYPTOGRAPHIE-introduction.md) |
-| **Cryptographie**  | Cours.                                                                     | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/CRYPTOGRAPHIE/blob/main/CYBERSECURITE-CRYPTOGRAPHIE-COURS.md) |
+| **Cryptographie**  | Introduction.                                                               | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](CYBERSECURITE-CRYPTOGRAPHIE-introduction.md) |
+| **Cryptographie**  | Cours.                                                                     | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/CRYPTOGRAPHIE/blob/main/CYBERSECURITE-CRYPTOGRAPHIE-COURS.md) |
 
 </div>
 
