@@ -34,7 +34,7 @@
 </div>
 
 <!--
-Optimisation SEO : 0xCyberLiTech, astuces, cybersécurité, Linux, sécurité informatique, tutoriels, guides, administration système, scripts Bash, Debian, cryptographie, cryptographie symétrique, clé, chiffrer, clé public, clé privée, clé rsa, clé dsa, ssh, chiffrement, déchiffrer, cryptographie asymétrique, log, ressources techniques, étudiants, professionnels, formation, réseau, IT, bonnes pratiques, passionnés.
+Optimisation SEO : Optimisation SEO : mots-clés Cryptographie, 0xCyberLiTech, astuces, cybersécurité, Linux, sécurité informatique, tutoriels, guides, administration système, scripts Bash, Debian, cryptographie, cryptographie symétrique, clé, chiffrer, clé public, clé privée, clé rsa, clé dsa, ssh, chiffrement, déchiffrer, cryptographie asymétrique, log, ressources techniques, étudiants, professionnels, formation, réseau, IT, bonnes pratiques, passionnés.
 -->
 
 <div align="center">
