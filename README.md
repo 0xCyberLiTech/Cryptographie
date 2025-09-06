@@ -72,8 +72,6 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 
 <div align="center">
 
-**Catégories des projets :**
-
 | Catégorie         | Description   | Accès Rapide                                                                                                                                                                                              |
 |-------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Cryptographie** | Introduction. | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](CYBERSECURITE-CRYPTOGRAPHIE-introduction.md)                                                   |
